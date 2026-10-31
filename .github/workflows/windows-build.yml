@@ -1,0 +1,35 @@
+name: Build Openstrator Windows M1
+on:
+  push:
+    paths:
+      - 'windows/**'
+      - '.github/workflows/windows-build.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure CMake
+        run: cmake -S windows -B windows/build -A x64
+      - name: Build native editor and portable core
+        run: cmake --build windows/build --config Release --parallel
+      - name: Run C++ core tests
+        run: ctest --test-dir windows/build -C Release --output-on-failure
+      - name: Upload Windows executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: Openstrator-Windows-M1-x64
+          path: windows/build/Release/Openstrator.exe
+          if-no-files-found: error
+  linux-core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run portable core tests
+        run: |
+          cmake -S windows -B /tmp/openstrator-linux -DCMAKE_BUILD_TYPE=Release
+          cmake --build /tmp/openstrator-linux --parallel
+          ctest --test-dir /tmp/openstrator-linux --output-on-failure
