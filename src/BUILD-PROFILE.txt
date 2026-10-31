@@ -1,0 +1,8 @@
+OPENSTRATOR V6 M6 — INTEL
+Architecture: x86_64
+Minimum macOS: 13 Ventura
+Builder: BUILD_OPENSTRATOR.command
+Output: Build Output/Openstrator.app
+Compile condition: OPENSTRATOR_INTEL
+Runtime profile: 36 undo snapshots / conservative Intel memory policy
+Release gates: 126 core tests in development + 87 framework-free Terminal checks

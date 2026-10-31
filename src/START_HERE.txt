@@ -1,0 +1,8 @@
+OPENSTRATOR V6 M5 — INTEL — TERMINAL BUILD
+
+Double-click BUILD_OPENSTRATOR.command after extracting all files.
+Wait for SUCCESS. Your app then appears in: Build Output/Openstrator.app
+If it fails, send OPENSTRATOR_BUILD_LOG.txt. No empty output folder is produced.
+Requires macOS 13+, Apple Command Line Tools or Xcode. Target: x86_64.
+
+M5 adds embedded multi-image placement, Portrait/Landscape artboards, a tiled raster engine, pixel paint/erase, selections/masks, and non-destructive raster filters while retaining the M4 delete-crash lifecycle fix. See BUILD_FIX_NOTES.md and QA_REPORT.md.

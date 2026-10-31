@@ -1,0 +1,10 @@
+.build/
+.superpowers/
+Build Output/
+.openstrator-build-work/
+OPENSTRATOR_BUILD_LOG.txt
+.DS_Store
+.build/
+.openstrator-build-work/
+Build Output/
+OPENSTRATOR_BUILD_LOG.txt
