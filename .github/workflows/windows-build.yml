@@ -6,7 +6,7 @@ on:
       - '.github/workflows/windows-build.yml'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   windows:
     runs-on: windows-2022
@@ -18,6 +18,19 @@ jobs:
         run: cmake --build windows/build --config Release --parallel
       - name: Run C++ core tests
         run: ctest --test-dir windows/build -C Release --output-on-failure
+      - name: Publish Windows ZIP to repository
+        if: github.ref == 'refs/heads/main'
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path releases | Out-Null
+          Compress-Archive -Path windows/build/Release/Openstrator.exe,windows/README.md -DestinationPath releases/Openstrator-Windows-M1-x64.zip -Force
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f releases/Openstrator-Windows-M1-x64.zip
+          if (-not (git diff --staged --quiet)) {
+            git commit -m "Publish verified Openstrator Windows M1 x64 build"
+            git push
+          }
       - name: Upload Windows executable
         uses: actions/upload-artifact@v4
         with:
