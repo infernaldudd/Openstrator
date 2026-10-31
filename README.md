@@ -1,5 +1,8 @@
 # Openstrator
 
+![Original Openstrator app icon](src/Resources/OpenstratorMark.png)
+
+
 **Native macOS vector and raster design editor** — V6 Milestone 6 (4 October 2026).
 
 Openstrator is an original vector-editing project built with **SwiftUI, AppKit, CoreGraphics, CoreText, and Core Image**. It is independent of Adobe products.
