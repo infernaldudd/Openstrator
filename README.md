@@ -14,7 +14,7 @@ Openstrator is an original vector-editing project built with **SwiftUI, AppKit, 
 
 **Windows Milestone 1 is in development:** the original macOS V6 M6 release remains available above. The initial Windows implementation uses Win32, Direct2D and DirectWrite, with basic vector editing and .openstrator document support.
 
-[Windows M1 source, build instructions and compatibility notes](windows/README.md) · [Download Windows build artifact from GitHub Actions](https://github.com/infernaldudd/Openstrator/actions/workflows/windows-build.yml)
+[Download Windows M1 (x64 ZIP)](releases/Openstrator-Windows-M1-x64.zip) · [Windows source and instructions](windows/README.md) · [CI build verification](https://github.com/infernaldudd/Openstrator/actions/workflows/windows-build.yml)
 
 ![Windows M1 concept preview — illustrative mockup, not a running application screenshot](windows/previews/windows-m1-concept.svg)
 
