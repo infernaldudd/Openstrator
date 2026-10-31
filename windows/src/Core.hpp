@@ -212,7 +212,7 @@ inline std::string uuid() {
         (unsigned long long)(c >> 16));
     return b;
 }
-struct Anchor { Point p, in, out; bool hasIn = false, hasOut = false; };
+struct Anchor { Point p, in, out; bool hasIn = false, hasOut = false; std::string kind = "corner"; Json raw = Json::obj(); };
 struct Shape {
     Json raw = Json::obj();
     std::string id, name = "Shape", kind = "rectangle", text = "Text";
@@ -237,7 +237,7 @@ struct Shape {
         s.closed = v.at("isClosed").yes();
         for (auto& p : v.at("points").array) s.points.push_back(readPoint(p));
         for (auto& a : v.at("bezierAnchors").array) {
-            Anchor z; z.p = readPoint(a.at("point"));
+            Anchor z; z.raw = a; z.kind = a.at("kind").str("corner"); z.p = readPoint(a.at("point"));
             z.hasIn = a.at("inHandle").type == Json::Type::Object;
             z.hasOut = a.at("outHandle").type == Json::Type::Object;
             if (z.hasIn) z.in = readPoint(a.at("inHandle"));
@@ -279,8 +279,8 @@ struct Shape {
         if ((kind == "path" || kind == "line") && (!anchors.empty() || raw.contains("bezierAnchors"))) {
             Json a = Json::arr();
             for (auto& z : anchors) {
-                Json t = Json::obj();
-                t["point"] = pointJson(z.p); t["kind"] = "corner";
+                Json t = z.raw.type == Json::Type::Object ? z.raw : Json::obj();
+                t["point"] = pointJson(z.p); t["kind"] = z.kind;
                 if (z.hasIn) t["inHandle"] = pointJson(z.in);
                 if (z.hasOut) t["outHandle"] = pointJson(z.out);
                 a.array.push_back(t);
