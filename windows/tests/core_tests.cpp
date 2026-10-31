@@ -52,6 +52,13 @@ int main() {
     Shape s=Shape::make("text",{42,50});s.text="Openstrator & <Windows>";
     n.shapes.push_back(s);
     assert(svg(n).find("Openstrator &amp; &lt;Windows&gt;")!=std::string::npos);
+    Json newFile=Json::parse(n.save());
+    assert(newFile.at("showGuides").yes());
+    assert(newFile.at("objects").array[0].at("blendMode").str()=="normal");
+    assert(newFile.at("objects").array[0].at("fontWeight").num()==0.4);
+    assert(newFile.at("objects").array[0].at("effects").type==Json::Type::Array);
+    assert(newFile.at("objects").array[0].at("points").type==Json::Type::Array);
+    assert(Document::load(n.save()).shapes.size()==1);
     Editor ed;ed.checkpoint();ed.doc.shapes.push_back(s);
     assert(ed.doc.shapes.size()==1);assert(ed.undo());assert(ed.doc.shapes.empty());
     assert(ed.redo());assert(ed.doc.shapes.size()==1);
