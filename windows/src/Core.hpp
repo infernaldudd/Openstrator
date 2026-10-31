@@ -271,6 +271,10 @@ struct Shape {
         v["stroke"] = colorJson(stroke); v["strokeWidth"] = strokeWidth;
         v["cornerRadius"] = radius; v["text"] = text; v["fontSize"] = fontSize;
         v["isVisible"] = visible; v["isLocked"] = locked;
+        if (!v.contains("blendMode")) v["blendMode"] = "normal";
+        if (!v.contains("fontWeight")) v["fontWeight"] = 0.4;
+        if (!v.contains("effects")) v["effects"] = Json::arr();
+        if (!v.contains("points")) v["points"] = Json::arr();
         if (kind == "path" || kind == "line" || raw.contains("points")) {
             Json a = Json::arr();
             for (auto& p : points) a.array.push_back(pointJson(p));
@@ -300,6 +304,9 @@ struct Document {
     static Document blank() {
         Document d; d.original["formatVersion"] = 2; d.original["name"] = "Untitled";
         d.original["background"] = colorJson({1,1,1,1}); d.original["guides"] = Json::arr();
+        d.original["showGuides"] = true; d.original["showGrid"] = true;
+        d.original["snapToGrid"] = false; d.original["gridSpacing"] = 24;
+        d.original["objects"] = Json::arr();
         return d;
     }
     static Document load(const std::string& bytes) {
@@ -330,6 +337,9 @@ struct Document {
         Json root = original; root["formatVersion"] = root.at("formatVersion").type == Json::Type::Number ? root.at("formatVersion") : Json(2);
         root["name"] = name; root["artboardWidth"] = width; root["artboardHeight"] = height;
         root["gridSpacing"] = grid; root["showGrid"] = showGrid; root["snapToGrid"] = snap;
+        if (!root.contains("showGuides")) root["showGuides"] = true;
+        if (!root.contains("guides")) root["guides"] = Json::arr();
+        if (!root.contains("background")) root["background"] = colorJson({1,1,1,1});
         Json arr = Json::arr();
         for (auto& shape : shapes) arr.array.push_back(shape.toJson());
         root["objects"] = std::move(arr);
