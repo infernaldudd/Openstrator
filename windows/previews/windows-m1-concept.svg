@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1360 860" width="1360" height="860" role="img" aria-label="Illustrative Openstrator Windows M1 interface mockup, not a screenshot">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#202738"/><stop offset="1" stop-color="#333a4d"/></linearGradient><linearGradient id="art" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ad81f5"/><stop offset="1" stop-color="#f88d92"/></linearGradient><filter id="ds"><feDropShadow dx="2" dy="11" stdDeviation="15" flood-color="#141a27" flood-opacity=".48"/></filter><pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0H0V25" fill="none" stroke="#b5bfd4" stroke-opacity=".19"/></pattern></defs>
+<rect x="0" y="0" width="1360" height="860" rx="0" fill="#1e2634" stroke="none" stroke-width="1"/>
+<rect x="0" y="0" width="1360" height="44" rx="0" fill="#1c2331" stroke="none" stroke-width="1"/>
+<rect x="19" y="9" width="26" height="26" rx="6" fill="#9769ef" stroke="none" stroke-width="1"/><text x="26" y="30" fill="#fff" font-size="20" font-weight="800" >O</text>
+<text x="56" y="29" fill="#f7f8fc" font-size="19" font-weight="750" >Openstrator</text>
+<text x="214" y="27" fill="#a2b2cd" font-size="11" font-weight="620" letter-spacing="1">WINDOWS / MILESTONE 1</text>
+<text x="570" y="28" fill="#d7e1f6" font-size="14" font-weight="620" >Untitled.openstrator</text>
+<rect x="0" y="44" width="1360" height="52" rx="0" fill="#263142" stroke="none" stroke-width="1"/>
+<rect x="16" y="51" width="75" height="34" rx="7" fill="#354256" stroke="#47556a" stroke-width="1"/><text x="29" y="72" fill="#eff4ff" font-size="13" font-weight="620" >New</text><rect x="100" y="51" width="80" height="34" rx="7" fill="#354256" stroke="#47556a" stroke-width="1"/><text x="113" y="72" fill="#eff4ff" font-size="13" font-weight="620" >Open</text><rect x="190" y="51" width="80" height="34" rx="7" fill="#354256" stroke="#47556a" stroke-width="1"/><text x="203" y="72" fill="#eff4ff" font-size="13" font-weight="620" >Save</text><rect x="280" y="51" width="125" height="34" rx="7" fill="#354256" stroke="#47556a" stroke-width="1"/><text x="293" y="72" fill="#eff4ff" font-size="13" font-weight="620" >Export SVG</text>
+<text x="740" y="73" fill="#9eabc0" font-size="12" font-weight="480" >Ctrl+Z Undo   Ctrl+S Save</text>
+<rect x="0" y="96" width="74" height="732" rx="0" fill="#222d3d" stroke="none" stroke-width="1"/>
+<rect x="11" y="118" width="52" height="55" rx="9" fill="#564b7b" stroke="none" stroke-width="1"/><text x="29" y="148" fill="#f2dcff" font-size="21" font-weight="700" >V</text><text x="13" y="167" fill="#9aabc4" font-size="9" font-weight="530" >Select</text><text x="29" y="215" fill="#abbcd4" font-size="21" font-weight="700" >R</text><text x="13" y="234" fill="#9aabc4" font-size="9" font-weight="530" >Rectangle</text><text x="29" y="282" fill="#abbcd4" font-size="21" font-weight="700" >E</text><text x="13" y="301" fill="#9aabc4" font-size="9" font-weight="530" >Ellipse</text><text x="29" y="349" fill="#abbcd4" font-size="21" font-weight="700" >L</text><text x="13" y="368" fill="#9aabc4" font-size="9" font-weight="530" >Line</text><text x="29" y="416" fill="#abbcd4" font-size="21" font-weight="700" >P</text><text x="13" y="435" fill="#9aabc4" font-size="9" font-weight="530" >Pen</text><text x="29" y="483" fill="#abbcd4" font-size="21" font-weight="700" >T</text><text x="13" y="502" fill="#9aabc4" font-size="9" font-weight="530" >Text</text><text x="29" y="550" fill="#abbcd4" font-size="21" font-weight="700" >H</text><text x="13" y="569" fill="#9aabc4" font-size="9" font-weight="530" >Hand</text>
+<rect x="74" y="96" width="976" height="732" rx="0" fill="url(#bg)" stroke="none" stroke-width="1"/>
+<g filter="url(#ds)"><rect x="176" y="159" width="780" height="600" rx="3" fill="#fff" stroke="none" stroke-width="1"/></g>
+<rect x="176" y="159" width="780" height="600" rx="0" fill="url(#grid)" stroke="none" stroke-width="1"/>
+<text x="105" y="123" fill="#afbcd2" font-size="12" font-weight="560" >Artboard 1</text>
+<path d="M492 490C550 350 675 349 748 440C811 518 718 662 595 621C500 588 427 623 492 490Z" fill="url(#art)"/>
+<circle cx="416" cy="371" r="95" fill="#dce7ff" opacity=".95"/>
+<circle cx="431" cy="368" r="72" fill="#a8b9f5"/>
+<path d="M280 558L465 320" stroke="#24344e" stroke-width="19" stroke-linecap="round"/>
+<path d="M283 558L465 320" stroke="#8f75da" stroke-width="9" stroke-linecap="round"/>
+<text x="276" y="282" fill="#20273b" font-size="65" font-weight="780" letter-spacing="6">D E S I G N</text>
+<text x="280" y="327" fill="#323d58" font-size="30" font-weight="610" >without limits.</text>
+<text x="287" y="699" fill="#51627e" font-size="12" font-weight="720" letter-spacing="3">OPENSTRATOR / WINDOWS</text>
+<rect x="252" y="238" width="590" height="420" rx="0" fill="none" stroke="#976cf0" stroke-width="1.5"/>
+<rect x="248" y="234" width="8" height="8" rx="0" fill="#fff" stroke="#8d68eb" stroke-width="1.5"/><rect x="838" y="234" width="8" height="8" rx="0" fill="#fff" stroke="#8d68eb" stroke-width="1.5"/><rect x="248" y="654" width="8" height="8" rx="0" fill="#fff" stroke="#8d68eb" stroke-width="1.5"/><rect x="838" y="654" width="8" height="8" rx="0" fill="#fff" stroke="#8d68eb" stroke-width="1.5"/>
+<rect x="1050" y="96" width="310" height="732" rx="0" fill="#212d3e" stroke="none" stroke-width="1"/>
+<text x="1071" y="125" fill="#c6d6ef" font-size="12" font-weight="730" letter-spacing="2">INSPECTOR</text>
+<rect x="1066" y="145" width="278" height="34" rx="7" fill="#323f55" stroke="none" stroke-width="1"/>
+<text x="1077" y="166" fill="#e4eaf7" font-size="11" font-weight="630" >Properties     Appearance     Layers</text>
+<text x="1071" y="221" fill="#fafbff" font-size="19" font-weight="700" >Design identity</text>
+<text x="1071" y="246" fill="#97a8c5" font-size="12" font-weight="400" >group</text>
+<text x="1071" y="287" fill="#a5b7d0" font-size="11" font-weight="750" letter-spacing="1">TRANSFORM</text>
+<rect x="1070" y="309" width="129" height="40" rx="6" fill="#344156" stroke="none" stroke-width="1"/><text x="1082" y="335" fill="#e8effb" font-size="13" font-weight="520" >X   252</text><rect x="1214" y="309" width="129" height="40" rx="6" fill="#344156" stroke="none" stroke-width="1"/><text x="1226" y="335" fill="#e8effb" font-size="13" font-weight="520" >Y   238</text><rect x="1070" y="357" width="129" height="40" rx="6" fill="#344156" stroke="none" stroke-width="1"/><text x="1082" y="383" fill="#e8effb" font-size="13" font-weight="520" >W   590</text><rect x="1214" y="357" width="129" height="40" rx="6" fill="#344156" stroke="none" stroke-width="1"/><text x="1226" y="383" fill="#e8effb" font-size="13" font-weight="520" >H   420</text>
+<text x="1071" y="438" fill="#a5b7d0" font-size="11" font-weight="750" letter-spacing="1">FILL COLOR</text>
+<rect x="1070" y="449" width="29" height="29" rx="7" fill="#9770f3" stroke="#748197" stroke-width="1"/><rect x="1109" y="449" width="29" height="29" rx="7" fill="#f25d76" stroke="#748197" stroke-width="1"/><rect x="1148" y="449" width="29" height="29" rx="7" fill="#47a1ec" stroke="#748197" stroke-width="1"/><rect x="1187" y="449" width="29" height="29" rx="7" fill="#54bd93" stroke="#748197" stroke-width="1"/><rect x="1226" y="449" width="29" height="29" rx="7" fill="#ffc052" stroke="#748197" stroke-width="1"/><rect x="1265" y="449" width="29" height="29" rx="7" fill="#242e45" stroke="#748197" stroke-width="1"/><rect x="1304" y="449" width="29" height="29" rx="7" fill="#fff" stroke="#748197" stroke-width="1"/>
+<text x="1071" y="518" fill="#e5edfb" font-size="13" font-weight="560" >Opacity    100%</text>
+<text x="1071" y="561" fill="#a5b7d0" font-size="11" font-weight="750" letter-spacing="1">LAYERS</text>
+<rect x="1066" y="576" width="278" height="36" rx="6" fill="#4c446e" stroke="none" stroke-width="1"/><text x="1081" y="598" fill="#fff" font-size="13" font-weight="690" >◆   Design identity</text>
+<text x="1081" y="640" fill="#c1cee0" font-size="13" font-weight="520" >◈   Purple form</text>
+<text x="1081" y="680" fill="#c1cee0" font-size="13" font-weight="520" >◈   Accent circle</text>
+<text x="1081" y="720" fill="#c1cee0" font-size="13" font-weight="520" >◈   Pen line</text>
+<rect x="0" y="828" width="1360" height="32" rx="0" fill="#1a2432" stroke="none" stroke-width="1"/>
+<text x="18" y="850" fill="#b0bed5" font-size="12" font-weight="400" >Ready</text><text x="756" y="850" fill="#a9b9cf" font-size="12" font-weight="400" >Zoom 72%  •  4 objects  •  Select</text>
+<rect x="1130" y="8" width="208" height="27" rx="8" fill="#3f3658" stroke="none" stroke-width="1"/><text x="1143" y="26" fill="#e2d3ff" font-size="10" font-weight="650" >CONCEPT PREVIEW · NOT CAPTURED</text>
+</svg>
