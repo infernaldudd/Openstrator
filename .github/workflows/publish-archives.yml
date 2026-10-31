@@ -1,0 +1,36 @@
+name: Publish original Openstrator V6 M6 archives
+on:
+  push:
+    paths:
+      - 'releases/parts/**'
+      - '.github/workflows/publish-archives.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Reconstruct archives, verify SHA-256 and extract browsable source
+        shell: bash
+        run: |
+          bash scripts/reassemble-releases.sh
+          mkdir -p src
+          unzip -q releases/Openstrator-Intel-V6-M6-Terminal.zip -d /tmp/openstrator-v6m6
+          cp -a /tmp/openstrator-v6m6/Openstrator-Intel-V6-M6-Terminal/. src/
+          cp -a /tmp/openstrator-v6m6/Openstrator-Intel-V6-M6-Terminal/QA_REPORT.md ./QA_REPORT.md
+      - name: Commit verified archives and source
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f releases/Openstrator-Intel-V6-M6-Terminal.zip releases/Openstrator-AppleSilicon-V6-M6-Terminal.zip src QA_REPORT.md
+          git rm -rf releases/parts
+          if ! git diff --staged --quiet; then
+            git commit -m "Publish verified V6 M6 archives and source"
+            git push
+          fi
