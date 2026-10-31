@@ -24,6 +24,10 @@ ctest --test-dir windows/build -C Release --output-on-failure
 
 Run windows/build/Release/Openstrator.exe.
 
+### Prebuilt Windows ZIP
+
+[Download the verified Windows M1 x64 ZIP](../releases/Openstrator-Windows-M1-x64.zip), extract it and launch Openstrator.exe. This executable is **unsigned** (Windows SmartScreen may warn); no macOS machine is needed. Native runtime UI testing on the user's Windows PC is still required.
+
 [Windows builds and downloadable artifacts](https://github.com/infernaldudd/Openstrator/actions/workflows/windows-build.yml) will be generated when GitHub Actions runs successfully.
 
 ## Functional M1 tools
