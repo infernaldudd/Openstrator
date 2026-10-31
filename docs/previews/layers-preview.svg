@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="1200" height="720" role="img" aria-label="Openstrator Layers and masks illustrative conceptual preview">
+ <defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#191d2a"/><stop offset="1" stop-color="#2b3143"/></linearGradient>
+ <linearGradient id="warm" x2="1" y2="1"><stop stop-color="#a48afb"/><stop offset=".54" stop-color="#f58c9b"/><stop offset="1" stop-color="#ffbc82"/></linearGradient>
+ <linearGradient id="paper" x2="1" y2=".8"><stop stop-color="#fff"/><stop offset="1" stop-color="#f5f1fa"/></linearGradient>
+ <filter id="shadow"><feDropShadow dx="0" dy="17" stdDeviation="24" flood-color="#060814" flood-opacity=".38"/></filter>
+ <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" stroke="#ffffff" stroke-opacity=".035" fill="none"/></pattern>
+ </defs>
+ <rect x="0" y="0" width="1200" height="720" rx="0" fill="url(#bg)" stroke="none" stroke-width="1"/>
+ <rect x="0" y="0" width="1200" height="51" rx="0" fill="#222838" stroke="none" stroke-width="1"/>
+ <circle cx="24" cy="26" r="6" fill="#ff6877"/><circle cx="44" cy="26" r="6" fill="#ffca67"/><circle cx="64" cy="26" r="6" fill="#65d4a0"/>
+ <rect x="89" y="13" width="28" height="26" rx="7" fill="#9f82ec" stroke="none" stroke-width="1"/><text x="95" y="32" fill="#fff" font-size="18" font-weight="760" >O</text>
+ <text x="126" y="31" fill="#f0f1f6" font-size="16" font-weight="700" >Openstrator</text>
+ <text x="280" y="31" fill="#aeb8c8" font-size="13" font-weight="520" >Untitled-1.openstrator</text>
+ <rect x="1050" y="12" width="130" height="27" rx="6" fill="#364056" stroke="none" stroke-width="1"/>
+ <text x="1065" y="30" fill="#d5c5f9" font-size="11" font-weight="590" >Illustrative mockup</text>
+ <rect x="0" y="51" width="1200" height="39" rx="0" fill="#293143" stroke="none" stroke-width="1"/>
+ <text x="20" y="76" fill="#bdc6d8" font-size="12" font-weight="400" >File</text><text x="66" y="76" fill="#bdc6d8" font-size="12" font-weight="400" >Edit</text>
+ <text x="116" y="76" fill="#bdc6d8" font-size="12" font-weight="400" >Object</text><text x="183" y="76" fill="#bdc6d8" font-size="12" font-weight="400" >Type</text>
+ <text x="234" y="76" fill="#bdc6d8" font-size="12" font-weight="400" >View</text><text x="290" y="76" fill="#bdc6d8" font-size="12" font-weight="400" >Window</text>
+ <text x="717" y="75" fill="#f0f2fb" font-size="13" font-weight="650" >Layers and masks</text>
+ <rect x="0" y="90" width="76" height="594" rx="0" fill="#252d3d" stroke="none" stroke-width="1"/><rect x="17" y="113" width="40" height="39" rx="9" fill="#414b60" stroke="none" stroke-width="1"/><text x="29" y="139" fill="#d4c4ff" font-size="21" font-weight="500" >↖</text><text x="29" y="187" fill="#a7b4c9" font-size="21" font-weight="500" >⌖</text><text x="29" y="235" fill="#a7b4c9" font-size="21" font-weight="500" >✒</text><text x="29" y="283" fill="#a7b4c9" font-size="21" font-weight="500" >◯</text><text x="29" y="331" fill="#a7b4c9" font-size="21" font-weight="500" >▱</text><text x="29" y="379" fill="#a7b4c9" font-size="21" font-weight="500" >T</text><text x="29" y="427" fill="#a7b4c9" font-size="21" font-weight="500" >▰</text><text x="29" y="475" fill="#a7b4c9" font-size="21" font-weight="500" >✎</text><text x="29" y="523" fill="#a7b4c9" font-size="21" font-weight="500" >⌗</text><text x="29" y="571" fill="#a7b4c9" font-size="21" font-weight="500" >✧</text><text x="29" y="619" fill="#a7b4c9" font-size="21" font-weight="500" >▦</text>
+ <rect x="76" y="90" width="770" height="594" rx="0" fill="#343d4f" stroke="none" stroke-width="1"/>
+ <rect x="76" y="90" width="770" height="594" rx="0" fill="url(#grid)" stroke="none" stroke-width="1"/>
+ <text x="103" y="116" fill="#aab6ca" font-size="12" font-weight="550" >Artboard 1</text>
+ <g filter="url(#shadow)"><rect x="220" y="110" width="518" height="488" rx="4" fill="#f8f8fa" stroke="none" stroke-width="1"/>
+ <text x="256" y="191" fill="#202436" font-size="48" font-weight="780" letter-spacing="5">LAYERED</text>
+ <text x="254" y="241" fill="#6e7485" font-size="21" font-weight="500" >ideas, made visible.</text>
+ <circle cx="487" cy="386" r="162" fill="#eee6f9"/><circle cx="506" cy="371" r="116" fill="#a8dbf3"/>
+ <path d="M328 428C362 313 459 284 515 303C605 327 641 406 581 480C529 543 416 534 359 500Z" fill="url(#warm)"/>
+ <path d="M387 365C422 356 441 377 473 367C509 352 532 331 571 348" stroke="#fff" stroke-width="15" fill="none" opacity=".75"/>
+ <path d="M343 520L596 271" stroke="#2d3652" stroke-width="5" stroke-linecap="round"/>
+ <text x="260" y="566" fill="#37435c" font-size="12" letter-spacing="3">CLIPPING  ·  MASKS  ·  SYMBOLS</text></g>
+ <rect x="846" y="90" width="354" height="594" rx="0" fill="#283143" stroke="none" stroke-width="1"/>
+ <text x="868" y="124" fill="#cdd7e7" font-size="12" font-weight="750" letter-spacing="2">INSPECTOR</text>
+ <rect x="867" y="140" width="98" height="29" rx="6" fill="#46516d" stroke="none" stroke-width="1"/><text x="880" y="160" fill="#fff" font-size="12" font-weight="650" >Layers</text><rect x="967" y="140" width="98" height="29" rx="6" fill="#313b4f" stroke="none" stroke-width="1"/><text x="980" y="160" fill="#a6b2c7" font-size="12" font-weight="450" >Assets</text><rect x="1067" y="140" width="98" height="29" rx="6" fill="#313b4f" stroke="none" stroke-width="1"/><text x="1080" y="160" fill="#a6b2c7" font-size="12" font-weight="450" >Styles</text>
+ <text x="882" y="187" fill="#9ba7bc" font-size="11" font-weight="760" letter-spacing="2">LAYERS</text>
+ <rect x="865" y="203" width="306" height="30" rx="6" fill="#343f56" stroke="none" stroke-width="1"/><text x="878" y="224" fill="#e3e9f6" font-size="13" font-weight="650" >▾  01  Brand identity</text>
+ <text x="883" y="260" fill="#c7d3e3" font-size="13" font-weight="400" >▾   Group 1</text>
+ <text x="906" y="293" fill="#b7c2d3" font-size="13" font-weight="400" >◉  Clip path</text>
+ <text x="906" y="326" fill="#b7c2d3" font-size="13" font-weight="400" >◑  Artwork mask</text>
+ <rect x="876" y="342" width="287" height="32" rx="6" fill="#465675" stroke="none" stroke-width="1"/><text x="907" y="364" fill="#fff" font-size="13" font-weight="600" >◆  Symbol instance</text>
+ <text x="883" y="401" fill="#bac5d6" font-size="13" font-weight="400" >▸  Linked images</text>
+ <text x="883" y="443" fill="#9ba7bc" font-size="11" font-weight="760" letter-spacing="2">GROUP PROPERTIES</text>
+ <text x="883" y="475" fill="#dee5f2" font-size="13" font-weight="400" >Opacity</text><text x="1128" y="475" fill="#dee5f2" font-size="13" font-weight="400" >85%</text>
+ <rect x="883" y="490" width="257" height="5" rx="3" fill="#424e67" stroke="none" stroke-width="1"/><rect x="883" y="490" width="207" height="5" rx="3" fill="#a58ef9" stroke="none" stroke-width="1"/>
+ <text x="883" y="529" fill="#dce5f1" font-size="13" font-weight="400" >Blend mode</text><text x="1090" y="529" fill="#cdd4df" font-size="13" font-weight="400" >Normal</text>
+ <text x="883" y="576" fill="#dce5f1" font-size="13" font-weight="400" >Mask</text><text x="1105" y="576" fill="#a1e9d3" font-size="13" font-weight="400" >Enabled</text>
+ <rect x="0" y="684" width="1200" height="36" rx="0" fill="#232b3a" stroke="none" stroke-width="1"/>
+ <text x="20" y="708" fill="#a5b2c5" font-size="12" font-weight="620" >Openstrator  ·  V6 M6</text>
+ <text x="510" y="708" fill="#9ca8ba" font-size="12" font-weight="460" >Concept visualization — not an application screenshot</text>
+ <text x="1074" y="708" fill="#aab6c7" font-size="12" font-weight="550" >100%  ·  RGB</text>
+ </svg>
