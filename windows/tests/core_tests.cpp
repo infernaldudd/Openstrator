@@ -1,3 +1,6 @@
+#ifdef NDEBUG
+#undef NDEBUG // Release builds must execute assertions in the test executable.
+#endif
 #include "Core.hpp"
 #include <cassert>
 #include <cmath>
@@ -41,6 +44,7 @@ int main() {
     assert(saved.at("rasterAssets").array[0].at("embeddedData").str()=="unchanged");
     assert(saved.at("objects").array[0].at("appearanceStack").at("future").yes());
     assert(saved.at("objects").array[0].at("bezierAnchors").array[0].at("point").at("x").num()==15);
+    assert(saved.at("objects").array[0].at("bezierAnchors").array[0].at("kind").str()=="smooth");
     assert(Document::load(d.save()).shapes[0].y==27);
     auto path=svg(d);
     assert(path.find("C 55 19 110 102 115 127")!=std::string::npos);
