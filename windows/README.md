@@ -6,6 +6,12 @@ This is the first Windows port milestone, **not yet macOS V6 M6 feature parity**
 
 The portable core follows the common JSON .openstrator document schema recovered from macOS M6. SwiftUI and AppKit have been reimplemented with original Windows code, not merely translated.
 
+## Interface preview
+
+![Concept illustration of the Windows M1 editor — not an actual app screenshot](previews/windows-m1-concept.svg)
+
+This preview shows the planned layout, not a verified screen capture of the running EXE.
+
 ## Build on Windows 10/11
 
 Install **Visual Studio 2022** with **Desktop development with C++** and the Windows SDK. Open PowerShell at the repository root:
