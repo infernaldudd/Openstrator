@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="1200" height="720" role="img" aria-label="Openstrator Editor workspace illustrative conceptual preview">
+ <defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#191d2a"/><stop offset="1" stop-color="#2b3143"/></linearGradient>
+ <linearGradient id="warm" x2="1" y2="1"><stop stop-color="#a48afb"/><stop offset=".54" stop-color="#f58c9b"/><stop offset="1" stop-color="#ffbc82"/></linearGradient>
+ <linearGradient id="paper" x2="1" y2=".8"><stop stop-color="#fff"/><stop offset="1" stop-color="#f5f1fa"/></linearGradient>
+ <filter id="shadow"><feDropShadow dx="0" dy="17" stdDeviation="24" flood-color="#060814" flood-opacity=".38"/></filter>
+ <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" stroke="#ffffff" stroke-opacity=".035" fill="none"/></pattern>
+ </defs>
+ <rect x="0" y="0" width="1200" height="720" rx="0" fill="url(#bg)" stroke="none" stroke-width="1"/>
+ <rect x="0" y="0" width="1200" height="51" rx="0" fill="#222838" stroke="none" stroke-width="1"/>
+ <circle cx="24" cy="26" r="6" fill="#ff6877"/><circle cx="44" cy="26" r="6" fill="#ffca67"/><circle cx="64" cy="26" r="6" fill="#65d4a0"/>
+ <rect x="89" y="13" width="28" height="26" rx="7" fill="#9f82ec" stroke="none" stroke-width="1"/><text x="95" y="32" fill="#fff" font-size="18" font-weight="760" >O</text>
+ <text x="126" y="31" fill="#f0f1f6" font-size="16" font-weight="700" >Openstrator</text>
+ <text x="280" y="31" fill="#aeb8c8" font-size="13" font-weight="520" >Untitled-1.openstrator</text>
+ <rect x="1050" y="12" width="130" height="27" rx="6" fill="#364056" stroke="none" stroke-width="1"/>
+ <text x="1065" y="30" fill="#d5c5f9" font-size="11" font-weight="590" >Illustrative mockup</text>
+ <rect x="0" y="51" width="1200" height="39" rx="0" fill="#293143" stroke="none" stroke-width="1"/>
+ <text x="20" y="76" fill="#bdc6d8" font-size="12" font-weight="400" >File</text><text x="66" y="76" fill="#bdc6d8" font-size="12" font-weight="400" >Edit</text>
+ <text x="116" y="76" fill="#bdc6d8" font-size="12" font-weight="400" >Object</text><text x="183" y="76" fill="#bdc6d8" font-size="12" font-weight="400" >Type</text>
+ <text x="234" y="76" fill="#bdc6d8" font-size="12" font-weight="400" >View</text><text x="290" y="76" fill="#bdc6d8" font-size="12" font-weight="400" >Window</text>
+ <text x="717" y="75" fill="#f0f2fb" font-size="13" font-weight="650" >Editor workspace</text>
+ <rect x="0" y="90" width="76" height="594" rx="0" fill="#252d3d" stroke="none" stroke-width="1"/><rect x="17" y="113" width="40" height="39" rx="9" fill="#414b60" stroke="none" stroke-width="1"/><text x="29" y="139" fill="#d4c4ff" font-size="21" font-weight="500" >↖</text><text x="29" y="187" fill="#a7b4c9" font-size="21" font-weight="500" >⌖</text><text x="29" y="235" fill="#a7b4c9" font-size="21" font-weight="500" >✒</text><text x="29" y="283" fill="#a7b4c9" font-size="21" font-weight="500" >◯</text><text x="29" y="331" fill="#a7b4c9" font-size="21" font-weight="500" >▱</text><text x="29" y="379" fill="#a7b4c9" font-size="21" font-weight="500" >T</text><text x="29" y="427" fill="#a7b4c9" font-size="21" font-weight="500" >▰</text><text x="29" y="475" fill="#a7b4c9" font-size="21" font-weight="500" >✎</text><text x="29" y="523" fill="#a7b4c9" font-size="21" font-weight="500" >⌗</text><text x="29" y="571" fill="#a7b4c9" font-size="21" font-weight="500" >✧</text><text x="29" y="619" fill="#a7b4c9" font-size="21" font-weight="500" >▦</text>
+ <rect x="76" y="90" width="770" height="594" rx="0" fill="#343d4f" stroke="none" stroke-width="1"/>
+ <rect x="76" y="90" width="770" height="594" rx="0" fill="url(#grid)" stroke="none" stroke-width="1"/>
+ <text x="103" y="116" fill="#aab6ca" font-size="12" font-weight="550" >Artboard 1</text>
+ 
+ <g filter="url(#shadow)"><rect x="205" y="106" width="542" height="510" rx="3" fill="#fcfcfa" stroke="none" stroke-width="1"/>
+ <rect x="205" y="106" width="542" height="510" rx="3" fill="url(#paper)" stroke="none" stroke-width="1"/>
+ <circle cx="473" cy="316" r="135" fill="#f2e9ff"/>
+ <circle cx="473" cy="316" r="100" fill="#c6b3f7" opacity=".36"/>
+ <path d="M288 473C316 398 358 265 474 224C608 177 664 290 668 417C673 516 597 551 506 512C415 476 353 533 288 473Z" fill="url(#warm)"/>
+ <path d="M278 422C383 438 385 189 527 218C604 234 586 310 671 314" fill="none" stroke="#332550" stroke-width="21" stroke-linecap="round"/>
+ <circle cx="524" cy="242" r="18" fill="#d8e8b5"/>
+ <text x="255" y="169" fill="#282043" font-size="46" font-weight="760" letter-spacing="7">F O R M</text>
+ <text x="258" y="204" fill="#282043" font-size="44" font-weight="760" letter-spacing="4">&amp; FLOW</text>
+ <text x="254" y="575" fill="#3c2b5c" font-size="13" font-weight="650" letter-spacing="4">STUDIO  /  2026</text>
+ </g>
+ <g stroke="#a78bfa" fill="none" stroke-width="1.6" stroke-dasharray="5 5"><rect x="264" y="171" width="446" height="389"/><path d="M474 224 L410 206 L330 250"/></g>
+ <circle cx="474" cy="224" r="5" fill="#fff"/><circle cx="474" cy="224" r="3" fill="#885afa"/><circle cx="410" cy="206" r="5" fill="#fff"/><circle cx="410" cy="206" r="3" fill="#885afa"/>
+ <circle cx="330" cy="250" r="5" fill="#fff"/><circle cx="330" cy="250" r="3" fill="#885afa"/>
+ 
+ <rect x="846" y="90" width="354" height="594" rx="0" fill="#283143" stroke="none" stroke-width="1"/>
+ <text x="868" y="124" fill="#cdd7e7" font-size="12" font-weight="750" letter-spacing="2">INSPECTOR</text>
+ <rect x="867" y="140" width="98" height="29" rx="6" fill="#46516d" stroke="none" stroke-width="1"/><text x="880" y="160" fill="#fff" font-size="12" font-weight="650" >Properties</text><rect x="967" y="140" width="98" height="29" rx="6" fill="#313b4f" stroke="none" stroke-width="1"/><text x="980" y="160" fill="#a6b2c7" font-size="12" font-weight="450" >Appearance</text><rect x="1067" y="140" width="98" height="29" rx="6" fill="#313b4f" stroke="none" stroke-width="1"/><text x="1080" y="160" fill="#a6b2c7" font-size="12" font-weight="450" >Layers</text>
+ <text x="882" y="187" fill="#9ba7bc" font-size="11" font-weight="760" letter-spacing="2">TRANSFORM</text>
+ <rect x="880" y="204" width="134" height="40" rx="7" fill="#30394b" stroke="none" stroke-width="1"/><rect x="1025" y="204" width="134" height="40" rx="7" fill="#30394b" stroke="none" stroke-width="1"/>
+ <text x="893" y="229" fill="#e4eaf2" font-size="13" font-weight="400" >X    320 px</text><text x="1039" y="229" fill="#e4eaf2" font-size="13" font-weight="400" >Y    184 px</text>
+ <rect x="880" y="253" width="134" height="40" rx="7" fill="#30394b" stroke="none" stroke-width="1"/><rect x="1025" y="253" width="134" height="40" rx="7" fill="#30394b" stroke="none" stroke-width="1"/>
+ <text x="893" y="278" fill="#e4eaf2" font-size="13" font-weight="400" >W    480 px</text><text x="1039" y="278" fill="#e4eaf2" font-size="13" font-weight="400" >H    640 px</text>
+ <text x="882" y="346" fill="#9ba7bc" font-size="11" font-weight="760" letter-spacing="2">APPEARANCE</text>
+ <text x="886" y="386" fill="#e4ebf6" font-size="14" font-weight="400" >◉   Fill</text><rect x="1100" y="366" width="32" height="25" rx="6" fill="#8b69ed" stroke="none" stroke-width="1"/>
+ <text x="886" y="427" fill="#e4ebf6" font-size="14" font-weight="400" >◯   Stroke</text><rect x="1100" y="408" width="32" height="25" rx="6" fill="#d7e0e7" stroke="none" stroke-width="1"/>
+ <text x="885" y="472" fill="#b69cff" font-size="13" font-weight="630" >+   Add effect</text>
+ <text x="882" y="525" fill="#9ba7bc" font-size="11" font-weight="760" letter-spacing="2">PROPERTIES</text>
+ <text x="886" y="567" fill="#dce5f4" font-size="13" font-weight="400" >Opacity</text><text x="1110" y="567" fill="#dce5f4" font-size="13" font-weight="400" >100%</text>
+ <rect x="0" y="684" width="1200" height="36" rx="0" fill="#232b3a" stroke="none" stroke-width="1"/>
+ <text x="20" y="708" fill="#a5b2c5" font-size="12" font-weight="620" >Openstrator  ·  V6 M6</text>
+ <text x="510" y="708" fill="#9ca8ba" font-size="12" font-weight="460" >Concept visualization — not an application screenshot</text>
+ <text x="1074" y="708" fill="#aab6c7" font-size="12" font-weight="550" >100%  ·  RGB</text>
+ </svg>
