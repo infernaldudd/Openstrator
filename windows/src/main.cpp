@@ -83,7 +83,7 @@ class Application {
     double zoom = .72, panX = 0, panY = 0;
     bool dirty = false, dragging = false, didCheckpoint = false, panning = false;
     Point start{}, previous{}, current{};
-    Point panStart{};
+    Point panStart{}, screenStart{};
     std::vector<Point> penPoints;
     const Color accents[7] = {{.59,.43,.95,1},{.95,.36,.46,1},{.2,.64,.91,1},
         {.22,.74,.59,1},{.98,.72,.31,1},{.14,.18,.27,1},{1,1,1,1}};
@@ -378,15 +378,15 @@ class Application {
             return;
         }
         dragging=true;panning=tool==Tool::Hand;
-        panStart={panX,panY};
+        panStart={panX,panY};screenStart={x,y};
         SetCapture(hwnd);invalidate();
     }
     void onMove(float x,float y) {
         if(!dragging) return;
         current=snapPoint(toDoc(x,y));
         if(panning) {
-            panX=panStart.x+(x-(float)toScreen(start).x);
-            panY=panStart.y+(y-(float)toScreen(start).y);
+            panX=panStart.x+(x-screenStart.x);
+            panY=panStart.y+(y-screenStart.y);
         } else if(tool==Tool::Select && selected>=0) {
             double dx=current.x-previous.x,dy=current.y-previous.y;
             if((std::abs(dx)>1e-7||std::abs(dy)>1e-7) && !editor.doc.shapes[selected].locked) {
@@ -580,7 +580,7 @@ class Application {
 public:
     bool initialize(HINSTANCE hInst,int show) {
         SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
-        if(FAILED(D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED,&factory)))return false;
+        if(FAILED(D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED,factory.GetAddressOf())))return false;
         if(FAILED(DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED,__uuidof(IDWriteFactory),reinterpret_cast<IUnknown**>(writing.GetAddressOf()))))return false;
         WNDCLASSEXW wc{};wc.cbSize=sizeof(wc);wc.style=CS_HREDRAW|CS_VREDRAW|CS_DBLCLKS;
         wc.lpfnWndProc=[](HWND h,UINT m,WPARAM w,LPARAM l)->LRESULT{
