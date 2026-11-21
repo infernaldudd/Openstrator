@@ -30,6 +30,7 @@ assert 'Color(nsColor: .secondaryLabelColor)' in resources, 'avoid ambiguous con
 assert 'CGFloat(object.fill.r)' in thumb and 'CGFloat(cos(a))' in thumb, 'AppKit/CoreGraphics numeric bridges must be explicit'
 assert 'public enum LayerNodeKindV6' in models and 'Equatable' in models and 'Hashable' in models
 assert 'cos(CGFloat(angle))' in canvas and 'sin(CGFloat(angle))' in canvas, 'polygon trig must use CGFloat overloads'
+assert 'let radians = CGFloat(proxy.rotation * .pi / 180)' in embedded, 'embedded rotation must remain CGFloat-safe'
 assert '?? CGFloat(proxy.x)' in embedded and '?? CGFloat(proxy.y)' in embedded, 'embedded bounds fallback must use CGFloat'
 assert 'object.x = Double(minX)' in embedded and 'object.width = max(1, Double(maxX - minX))' in embedded, 'embedded geometry must convert CGFloat to Double'
 assert 'guard let clippingGroupID' in mask and 'groupIDs.contains(clippingGroupID)' in mask, 'release must unwrap UUID'

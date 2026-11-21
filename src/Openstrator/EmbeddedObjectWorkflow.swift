@@ -212,7 +212,7 @@ extension EditorStore {
         var object = source
         let sx = proxy.bounds.width / max(0.0001, original.width)
         let sy = proxy.bounds.height / max(0.0001, original.height)
-        let radians = proxy.rotation * .pi / 180
+        let radians = CGFloat(proxy.rotation * .pi / 180)
         let center = CGPoint(x: proxy.bounds.midX, y: proxy.bounds.midY)
 
         func map(_ point: CGPoint) -> CGPoint {
