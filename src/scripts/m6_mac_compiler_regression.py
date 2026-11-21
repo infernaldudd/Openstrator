@@ -2,6 +2,8 @@ from pathlib import Path
 
 layer = Path('Openstrator/LayerWorkflow.swift').read_text()
 thumb = Path('Openstrator/LayerThumbnails.swift').read_text()
+canvas = Path('Openstrator/CanvasView.swift').read_text()
+mask = Path('Openstrator/MaskClippingWorkflow.swift').read_text()
 resources = Path('Openstrator/ResourceLibraryWorkflow.swift').read_text()
 embedded = Path('Openstrator/EmbeddedObjectWorkflow.swift').read_text()
 linked = Path('Openstrator/LinkedAssetWorkflow.swift').read_text()
@@ -27,4 +29,9 @@ assert '@MainActor\nstruct ResourceLibraryPanel: View' in resources
 assert 'Color(nsColor: .secondaryLabelColor)' in resources, 'avoid ambiguous conditional ShapeStyle inference'
 assert 'CGFloat(object.fill.r)' in thumb and 'CGFloat(cos(a))' in thumb, 'AppKit/CoreGraphics numeric bridges must be explicit'
 assert 'public enum LayerNodeKindV6' in models and 'Equatable' in models and 'Hashable' in models
-print('M6 macOS compiler-risk regression: PASS')
+assert 'cos(CGFloat(angle))' in canvas and 'sin(CGFloat(angle))' in canvas, 'polygon trig must use CGFloat overloads'
+assert '?? CGFloat(proxy.x)' in embedded and '?? CGFloat(proxy.y)' in embedded, 'embedded bounds fallback must use CGFloat'
+assert 'object.x = Double(minX)' in embedded and 'object.width = max(1, Double(maxX - minX))' in embedded, 'embedded geometry must convert CGFloat to Double'
+assert 'guard let clippingGroupID' in mask and 'groupIDs.contains(clippingGroupID)' in mask, 'release must unwrap UUID'
+assert 'func toggleLayerVisibility(_ id: UUID) {\n        guard var tree = document.layerTree, let node =' in layer, 'layer visibility guard must be immutable'
+print('M6.1 macOS compiler-risk regression: PASS')

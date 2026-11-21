@@ -1,5 +1,5 @@
 #!/bin/zsh
-# Native Openstrator V6 M6 — Intel one-click builder.
+# Native Openstrator V6 M6.1 — Intel one-click builder.
 # Apple Command Line Tools are sufficient; no Xcode GUI required.
 set -u
 
@@ -19,7 +19,7 @@ finish() {
   echo
   echo "========================================================="
   if [[ "$exit_code" -eq 0 ]]; then
-    echo "SUCCESS: Openstrator V6 M6 has been packaged for $ARCH."
+    echo "SUCCESS: Openstrator V6 M6.1 has been packaged for $ARCH."
     echo "App: $FINAL"
     echo "Openstrator.app is locally ad-hoc signed, NOT notarized."
     open -R "$FINAL" >/dev/null 2>&1 || true
@@ -40,7 +40,7 @@ finish() {
   exit "$exit_code"
 }
 
-printf 'Openstrator V6 M6 — %s Terminal builder\n' "$LABEL"
+printf 'Openstrator V6 M6.1 — %s Terminal builder\n' "$LABEL"
 printf 'Target: %s | This Mac: %s\n' "$ARCH" "$(uname -m)"
 if [[ "$(uname -s)" != "Darwin" ]]; then
   echo 'Requires macOS; an .app cannot be built by this script on Linux/Windows.'

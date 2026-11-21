@@ -231,9 +231,12 @@ extension EditorStore {
             CGPoint(x: source.bounds.minX, y: source.bounds.minY), CGPoint(x: source.bounds.maxX, y: source.bounds.minY),
             CGPoint(x: source.bounds.maxX, y: source.bounds.maxY), CGPoint(x: source.bounds.minX, y: source.bounds.maxY),
         ].map(map)
-        let minX = corners.map(\.x).min() ?? proxy.x, maxX = corners.map(\.x).max() ?? proxy.x + 1
-        let minY = corners.map(\.y).min() ?? proxy.y, maxY = corners.map(\.y).max() ?? proxy.y + 1
-        object.x = minX; object.y = minY; object.width = max(1, maxX - minX); object.height = max(1, maxY - minY)
+        let minX = corners.map(\.x).min() ?? CGFloat(proxy.x)
+        let maxX = corners.map(\.x).max() ?? CGFloat(proxy.x + 1)
+        let minY = corners.map(\.y).min() ?? CGFloat(proxy.y)
+        let maxY = corners.map(\.y).max() ?? CGFloat(proxy.y + 1)
+        object.x = Double(minX); object.y = Double(minY)
+        object.width = max(1, Double(maxX - minX)); object.height = max(1, Double(maxY - minY))
         object.rotation += proxy.rotation
         object.opacity *= proxy.opacity
         object.scaleX = (object.scaleX ?? 1) * (proxy.scaleX ?? 1)
