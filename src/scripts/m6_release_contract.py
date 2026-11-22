@@ -20,7 +20,7 @@ assert 'placeLinkedImages' in links and 'embedLinkedAsset' in links
 assert 'createSymbolFromSelection' in symbols and 'detachSelectedSymbolInstances' in symbols
 assert 'saveGraphicStyleFromSelection' in resources and 'exportResourceLibrary' in resources
 assert 'NSCache<NSString, NSImage>' in thumbs and 'Task.yield()' in thumbs
-assert 'Openstrator V6 M6' in builder
+assert 'Openstrator V6 M6' in builder or 'Openstrator V6 M7' in builder
 assert '--product Openstrator' in builder
 assert '"$SWIFT" test' not in builder
 print('M6 release contract: PASS')

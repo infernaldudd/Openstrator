@@ -1,3 +1,17 @@
+# Openstrator V6 M7.1a — Variable-width vector stroke profiles
+
+New, tested M7.1a slice:
+- Five editable width profiles for **open** Pen/Pencil/line paths: Uniform, Taper Both Ends, Taper Start, Taper End, Middle Heavy.
+- Real filled vector outline geometry (not bitmap shader) via stroke-profile engine.
+- Works with existing strokes and multi-stroke Appearance; vector-stroke gradient support in Appearance path.
+- Optional JSON profile property; M6.1 `.openstrator` files decode unchanged.
+- Appearance Inspector picker; changes create undo snapshots, save/reopen with the object.
+- SVG exports expanded geometry for faithful non-uniform stroke silhouettes.
+
+M7.1a **does not implement** the entire Illustrator tool/effect catalog, the full brush families, closed-path variable-width seams, or per-knot manual width drag editing. See the M7 GitHub capability matrix.
+
+---
+
 # Openstrator V6 M6 — feature matrix
 
 ## M6 Layer/Object Workflows

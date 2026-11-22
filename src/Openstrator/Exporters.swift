@@ -52,6 +52,17 @@ struct SVGExporter {
             let style = svgStyle(for: object)
             let common = "fill=\"\(fill)\" fill-opacity=\"\(format(fillOpacity))\" stroke=\"\(stroke)\" stroke-opacity=\"\(format(object.stroke.a))\" stroke-width=\"\(format(object.strokeWidth))\" opacity=\"\(format(object.opacity))\"\(dash)\(cap)\(join)\(transform)\(style)"
 
+            // A variable-width stroke has no SVG stroke-width equivalent. Export
+            // its true expanded vector silhouette instead of silently losing it.
+            if let expanded = variableStrokeSVGElement(for: object,
+                width: object.strokeWidth,
+                fill: stroke,
+                opacity: object.stroke.a,
+                extra: " opacity=\"\(format(object.opacity))\"\(transform)\(style)") {
+                elements.append(expanded)
+                continue
+            }
+
             switch object.kind {
             case .rectangle:
                 elements.append("<rect x=\"\(format(object.x))\" y=\"\(format(object.y))\" width=\"\(format(object.width))\" height=\"\(format(object.height))\" rx=\"\(format(object.cornerRadius))\" \(common)/>")
@@ -138,7 +149,13 @@ struct SVGExporter {
                 let paint = svgPaint(stroke.paint, id: "m4-stroke-\(stroke.id.uuidString)", defs: &defs)
                 let dash = stroke.dash.isEmpty ? "" : " stroke-dasharray=\"\(stroke.dash.map(format).joined(separator: ","))\""
                 let common = "fill=\"none\" stroke=\"\(paint.value)\" stroke-opacity=\"\(format(paint.opacity * stroke.opacity))\" stroke-width=\"\(format(stroke.width))\" stroke-linecap=\"\(escape(stroke.cap))\" stroke-linejoin=\"\(escape(stroke.join))\" stroke-miterlimit=\"\(format(stroke.miterLimit))\"\(dash) opacity=\"1\"\(objectTransform)"
-                if let element = svgGeometryElement(for: object, common: common) { paintElements.append(element) }
+                if let expanded = variableStrokeSVGElement(for: object, width: stroke.width,
+                    fill: paint.value, opacity: paint.opacity * stroke.opacity,
+                    extra: " opacity=\"1\"\(objectTransform)") {
+                    paintElements.append(expanded)
+                } else if let element = svgGeometryElement(for: object, common: common) {
+                    paintElements.append(element)
+                }
             case .effect, .fill, .stroke:
                 continue
             }
@@ -153,6 +170,15 @@ struct SVGExporter {
         let transformed = m4TransformCopies(stack: stack, object: object, content: inner)
         let group = "<g opacity=\"\(format(stack.opacity))\" data-openstrator-appearance=\"\(escape(metadata))\"\(effectStyle)>\(transformed)</g>"
         return (defs, [group])
+    }
+
+    private static func variableStrokeSVGElement(for object: VectorObject, width: Double,
+        fill: String, opacity: Double, extra: String) -> String? {
+        guard fill != "none", let points = StrokeProfileRenderer.outlinePoints(for: object, width: width),
+              let first = points.first else { return nil }
+        let start = "M \(format(Double(first.x))) \(format(Double(first.y)))"
+        let rest = points.dropFirst().map { "L \(format(Double($0.x))) \(format(Double($0.y)))" }.joined(separator: " ")
+        return "<path id=\"stroke-\(object.id.uuidString)\" d=\"\(start) \(rest) Z\" fill=\"\(fill)\" fill-opacity=\"\(format(opacity))\" stroke=\"none\"\(extra)/>"
     }
 
     private static func svgPaint(_ paint: AppearancePaintV6, id: String, defs: inout [String]) -> (value: String, opacity: Double) {

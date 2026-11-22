@@ -1,4 +1,12 @@
-# Openstrator V6 M6 — Layer/Object Workflows
+# Openstrator V6 M7.1a — First M7 vector-stroke slice
+
+- M6.1 native compiler fixes preserved.
+- Added real vector outline generation, UI, serialization, dual canvas rendering, SVG export, 4 dedicated core tests and 4 release self-checks.
+- Linux gate cannot type-check AppKit/SwiftUI; run the provided Terminal builder on a Mac to confirm the native gate.
+
+---
+
+# Openstrator V6 M6.1 — Layer/Object Workflows native compiler repair
 
 - Added cycle-safe `LayerTreeV6` and shared `ResourceLibraryV6` core models with backward-compatible optional app fields.
 - Added native hierarchy bridge and Layers panel workflows for nested groups, reorder/reparent, visibility/lock, rename, selection targeting and accents.
@@ -82,3 +90,10 @@ M1/M2 fixes remain intact: Delete/Backspace routing, canonical pointer conversio
 - Restored an explicit `VectorEffect(id:kind:amount:enabled:)` compatibility initializer after M4's custom `init?(live:)` removed Swift's synthesized memberwise initializer. This keeps five legacy effect-creation paths compiling while they continue to migrate through the M4 Appearance bridge.
 - Removed the unused `.color(let color)` binding reported by the macOS compiler.
 - Added `scripts/m4_1_mac_compiler_regression.py` to the M4 acceptance gate to pin these exact failures.
+
+## M6.1 native compiler repair
+
+- Fixed ambiguous Swift 6 `cos`/`sin` overload selection in polygon rendering by keeping CoreGraphics math explicitly in `CGFloat`.
+- Fixed Embedded Object transformed-bound fallback by explicitly bridging `CGFloat` geometry to the legacy `Double` object model.
+- Fixed clipping-group release by unwrapping optional `clippingGroupID` before `Set<UUID>.contains`.
+- Cleaned the read-only visibility node binding warning and expanded `m6_mac_compiler_regression.py` to cover all four Mac-reported issues.

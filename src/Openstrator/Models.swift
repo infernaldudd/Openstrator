@@ -645,6 +645,8 @@ struct VectorObject: Identifiable, Codable, Equatable {
     var gradient: LinearGradientModel? = nil
     var stroke: RGBAColor = .black
     var strokeWidth: Double = 1
+    // M7.1 optional variable-width geometry. Nil decodes all M6.1 documents unchanged.
+    var strokeProfile: StrokeWidthProfileV6? = nil
     var cornerRadius: Double = 0
     var blendMode: BlendModeKind = .normal
     var text: String = "Text"

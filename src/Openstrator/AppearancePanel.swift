@@ -49,6 +49,20 @@ struct AppearancePanel: View {
             }
             .pickerStyle(.menu)
 
+            if (object.kind == .path || object.kind == .line), object.isClosed != true {
+                Picker("Width Profile", selection: Binding<StrokeWidthProfileV6>(
+                    get: { store.document.objects.first(where: { $0.id == object.id })?.strokeProfile ?? .uniform },
+                    set: { store.setStrokeWidthProfile($0, objectID: object.id) }
+                )) {
+                    ForEach(StrokeWidthProfileV6.allCases) { profile in
+                        Text(profile.title).tag(profile)
+                    }
+                }
+                .pickerStyle(.menu)
+                .font(.caption)
+                .help("Variable-width outline for open paths. Undoable and saved with the document.")
+            }
+
             if stack.entries.isEmpty {
                 Text("Add fills, strokes, and live effects. Entries render in stack order and remain editable.")
                     .font(.caption2).foregroundStyle(.secondary)

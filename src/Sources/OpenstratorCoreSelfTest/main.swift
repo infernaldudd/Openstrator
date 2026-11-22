@@ -446,3 +446,14 @@ do {
 }
 
 print("OpenstratorCoreSelfTest M6 final: PASS (\(checks) checks)")
+
+// M7.1 — variable-width strokes are real geometric outlines, not decorative metadata.
+let profile = StrokeWidthProfileV6.taperBoth
+require(profile.scale(at: 0.5) > profile.scale(at: 0), "M7.1 tapered width midpoint")
+let lineOutline = StrokeOutlineV6.make(centerline: [CGPoint(x: 0, y: 0), CGPoint(x: 80, y: 0)], baseWidth: 20, profile: profile)
+require(lineOutline.count == 4 && lineOutline.allSatisfy { $0.x.isFinite && $0.y.isFinite }, "M7.1 variable stroke produces finite fillable geometry")
+require(StrokeOutlineV6.make(centerline: [CGPoint(x: 0,y: 0),CGPoint(x: 80,y: 0)], baseWidth: 0, profile: profile).isEmpty, "M7.1 invalid widths rejected")
+if let encoded = try? JSONEncoder().encode(profile), let decoded = try? JSONDecoder().decode(StrokeWidthProfileV6.self, from: encoded) {
+    require(decoded == profile, "M7.1 width-profile Codable roundtrip")
+} else { fatalError("M7.1 width-profile JSON roundtrip failed") }
+print("OpenstratorCoreSelfTest M7.1: PASS (\(checks) total checks)")
