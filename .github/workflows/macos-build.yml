@@ -1,0 +1,79 @@
+name: Openstrator M7.1a macOS native build
+
+on:
+  push:
+    branches:
+      - milestone/m7-illustrator-parity
+    paths:
+      - 'src/**'
+      - '.github/workflows/macos-build.yml'
+  pull_request:
+    paths:
+      - 'src/**'
+      - '.github/workflows/macos-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  macos:
+    name: Native Swift — ${{ matrix.arch }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15
+            arch: arm64
+          - runner: macos-15-intel
+            arch: x86_64
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify runner architecture and Swift
+        working-directory: src
+        run: |
+          set -euo pipefail
+          swift --version
+          test "$(uname -m)" = "${{ matrix.arch }}"
+
+      - name: Core unit tests
+        working-directory: src
+        run: swift test --filter OpenstratorCoreTests
+
+      - name: Framework-free regression and source contracts
+        working-directory: src
+        env:
+          M7_SKIP_HISTORICAL: '1'
+        run: bash scripts/m7_1a_acceptance.sh
+
+      - name: Build and locally sign Openstrator.app
+        working-directory: src
+        run: |
+          chmod +x BUILD_OPENSTRATOR.command
+          ./BUILD_OPENSTRATOR.command
+
+      - name: Archive native app, preserving bundle permissions
+        working-directory: src
+        run: |
+          test -x "Build Output/Openstrator.app/Contents/MacOS/Openstrator"
+          ditto -c -k --keepParent "Build Output/Openstrator.app" "Openstrator-${{ matrix.arch }}-M7.1a.zip"
+
+      - name: Upload build log even if compilation fails
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-build-log-${{ matrix.arch }}
+          path: src/OPENSTRATOR_BUILD_LOG.txt
+          if-no-files-found: ignore
+
+      - name: Upload validated Mac app
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Openstrator-${{ matrix.arch }}-M7.1a
+          path: src/Openstrator-${{ matrix.arch }}-M7.1a.zip
+          if-no-files-found: error
+          retention-days: 14
