@@ -39,6 +39,24 @@ jobs:
           swift --version
           test "$(uname -m)" = "${{ matrix.arch }}"
 
+      - name: Configure Intel source build settings
+        if: matrix.arch == 'x86_64'
+        working-directory: src
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          builder = Path('BUILD_OPENSTRATOR.command')
+          text = builder.read_text()
+          assert 'ARCH="arm64"' in text
+          text = text.replace('ARCH="arm64"', 'ARCH="x86_64"')
+          text = text.replace('LABEL="Apple Silicon"', 'LABEL="Intel"')
+          builder.write_text(text)
+          package = Path('Package.swift')
+          p = package.read_text()
+          assert 'OPENSTRATOR_APPLE_SILICON' in p
+          package.write_text(p.replace('OPENSTRATOR_APPLE_SILICON', 'OPENSTRATOR_INTEL'))
+          PY
+
       - name: Core unit tests
         working-directory: src
         run: swift test --filter OpenstratorCoreTests
