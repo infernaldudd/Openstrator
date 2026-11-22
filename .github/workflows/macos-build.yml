@@ -16,6 +16,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: openstrator-macos-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
+
 jobs:
   macos:
     name: Native Swift — ${{ matrix.arch }}
@@ -56,6 +60,13 @@ jobs:
           assert 'OPENSTRATOR_APPLE_SILICON' in p
           package.write_text(p.replace('OPENSTRATOR_APPLE_SILICON', 'OPENSTRATOR_INTEL'))
           PY
+
+      - name: Install icon validation dependency
+        working-directory: src
+        run: |
+          python3 -m venv .ci-venv
+          .ci-venv/bin/python -m pip install --disable-pip-version-check pillow
+          echo "$PWD/.ci-venv/bin" >> "$GITHUB_PATH"
 
       - name: Core unit tests
         working-directory: src
