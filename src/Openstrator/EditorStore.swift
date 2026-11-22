@@ -845,6 +845,16 @@ final class EditorStore: ObservableObject {
         document.objects.first(where: { $0.id == objectID })?.resolvedAppearanceStack
     }
 
+    func setStrokeWidthProfile(_ profile: StrokeWidthProfileV6, objectID: UUID) {
+        guard let index = document.objects.firstIndex(where: { $0.id == objectID }),
+              document.objects[index].kind == .path || document.objects[index].kind == .line else { return }
+        let resolved: StrokeWidthProfileV6? = profile == .uniform ? nil : profile
+        guard document.objects[index].strokeProfile != resolved else { return }
+        snapshot()
+        document.objects[index].strokeProfile = resolved
+        commitMutation(status: "Stroke width profile updated")
+    }
+
     func updateAppearanceStack(objectID: UUID, recordHistory: Bool = true, status message: String = "Appearance updated", _ mutation: (inout AppearanceStackV6) -> Void) {
         guard let index = document.objects.firstIndex(where: { $0.id == objectID }) else { return }
         if recordHistory { snapshot() }

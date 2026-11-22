@@ -11,7 +11,7 @@ assert 'func placeImages()' in store and 'func placeImages(at urls: [URL]' in st
 assert 'func setArtboardOrientation(_ orientation: ArtboardOrientationV6)' in store
 assert 'CommandMenu("Raster")' in app
 assert 'CommandMenu("Artboard")' in app
-assert 'Openstrator V6 M5' in builder or 'Openstrator V6 M6' in builder
+assert 'Openstrator V6 M5' in builder or 'Openstrator V6 M6' in builder or 'Openstrator V6 M7' in builder
 assert '--product Openstrator' in builder
 assert '"$SWIFT" test' not in builder
 print('m5 release contract: PASS')

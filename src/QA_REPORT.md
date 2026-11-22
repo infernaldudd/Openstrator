@@ -1,38 +1,36 @@
-# Openstrator V6 M6 QA report
+# Openstrator V6 M7.1a — QA and Mac handoff
 
-## Milestone
+**Date:** 2026-11-22 · **Baseline:** V6 M6.1, known to launch on Apple Silicon from screenshots.
 
-M6 implements the roadmap's Layer/Object Workflows milestone on top of the M5.1 raster/native-compiler-repair baseline.
+## Shipped this release
 
-## Portable verification completed
+- A new framework-free `StrokeWidthProfileV6` model with five profiles and a real filled vector outline generator for **open** lines and Bézier paths.
+- `VectorObject.strokeProfile` is optional, preserving old `.openstrator` Codable documents.
+- Stroke Profile picker in Appearance Inspector. Each change snapshots history; copying, saving and reopening preserve the profile.
+- Matching classic-canvas and M4 Appearance stack rendering. SVG export expands profiles to vector polygon paths rather than silently dropping width variation.
+- App bundle version updated to 0.7.1 (build 71).
 
-- `swift test --filter OpenstratorCoreTests`: **126 tests, 0 failures**.
-- Framework-free `OpenstratorCoreSelfTest`: **87 checks passed** through `OpenstratorCoreSelfTest M6 final`.
-- Historical M1 gate completed before the long aggregate runner reached M2; M2, M3 and M4 acceptance gates were then rerun independently to completion and passed.
-- M5 full core/self-test stages passed; the aggregate wrapper hit the execution-time ceiling during its contract section, so every remaining M5 image/raster/filter/compiler/delete/parser/icon/manifest gate was run individually and passed.
-- M6 model compatibility, layer UI bridge, clipping/mask, Embedded Object, linked asset, Symbol, resource/thumbnail, macOS compiler-risk and release contracts all pass.
-- M4 selected-object delete lifecycle regression remains green.
-- M5.1 native compiler regression remains green.
-- All portable Swift source files pass `swiftc -frontend -parse`.
-- Icon alpha and `Package.swift` manifest checks pass.
+## Verification (this Linux execution environment)
 
-## M6 behavior covered
+- OpenstratorCore XCTest: **130/130 passed** (126 baseline + 4 new tests).
+- Framework-free Terminal release self-test: **91/91 passed** (87 baseline + 4 new checks).
+- M5 acceptance: passed, M6 acceptance: passed.
+- M7.1a contracts: passed; all Swift source syntax parses; icon alpha, `Package.swift`, historical native compiler and delete lifecycle regressions pass.
+- Intel and Apple Silicon sources: verified identical under implementation, test and script trees in final packaging; architecture/build metadata differ intentionally.
+- ZIP: CRC checked; `BUILD_OPENSTRATOR.command` executable.
 
-- `LayerTreeV6` provides cycle-safe hierarchical nesting, reorder/reparent, subtree deletion, object-order projection and validation.
-- Existing M5.1 documents remain compatible because app-level hierarchy/resource fields are optional and bootstrapped only when needed.
-- Layers UI supports nested expand/collapse, reorder/reparent, visibility, lock, rename, selection targeting, locate-selection and accents while retaining the legacy flat object renderer as a compatibility bridge.
-- Clipping groups route content through a clipping path; opacity masks support normal/inverted compositing and release without losing the mask artwork.
-- Embedded Objects preserve encoded editable child artwork and original bounds, render through a transformable proxy, support separate content editing, replace/expand, and guard recursive nesting.
-- Linked images retain an embedded raster fallback, prefer the live source when available, expose linked/modified/missing state, and support Refresh, Relink and Embed.
-- Symbols share one definition payload across instances; replacing a definition updates instances and Detach restores editable artwork. Symbol Sprayer can use M6 definitions.
-- Graphic Styles persist full Appearance stacks. Resource libraries can import/export Embedded Objects, Links, Symbols and Graphic Styles as JSON.
-- Layer thumbnails use a bounded `NSCache` and asynchronous generation after a UI yield; mutation/undo/redo invalidates stale thumbnails.
-- Duplicate/copy/paste remap hierarchy relationships while sharing resource payloads by UUID rather than multiplying embedded data.
+## Native Mac build still required
 
-## Native macOS compiler-risk hardening
+The current environment **cannot type-check/link/launch** SwiftUI, AppKit or Core Image. The user should unzip the appropriate Terminal archive into a fresh folder, run `BUILD_OPENSTRATOR.command`, and send `OPENSTRATOR_BUILD_LOG.txt` if native compilation fails. A native `.app` is **not included** in the ZIP and has **not** been built in this environment.
 
-M6 adds `scripts/m6_mac_compiler_regression.py`, covering issues portable parsing cannot prove: explicit `OpenstratorCore` and AppKit imports, cross-file view visibility, main-actor isolation for thumbnail/resource views, explicit AppKit/CoreGraphics numeric bridges, and conditional style typing.
+## Native smoke tests
 
-## Native macOS gate still required
+1. Select an open Pen/Pencil path and choose Taper Both Ends, then Taper Start/End and Undo/Redo.
+2. Save as `.openstrator`, close and reopen; confirm profile persists.
+3. Export SVG and inspect the filled outline in a browser/editor. Compare against the canvas.
+4. Confirm uniform strokes, closed path strokes, text, raster images, masks, nested layers, and symbols still render.
+5. Check the previously observed typography transforms and off-artboard artwork from the user's M6.1 screenshots (reproduction needed to classify a defect).
 
-This workspace is Linux and cannot semantically type-check/link/launch AppKit and SwiftUI as a macOS application. The authoritative final gate remains running `BUILD_OPENSTRATOR.command` on the matching Mac architecture. After a successful build, smoke-test launch, Layers nesting/reorder/visibility/lock, clipping groups, opacity masks, Embedded Object edit/expand, linked-asset refresh/relink/embed, Symbols, Graphic Styles/resources, thumbnails, save/reopen, Undo/Redo and Delete/Backspace.
+## Deliberate limits
+
+M7.1a delivers variable-width profile presets for **open paths only**. Closed-path seam interpolation, per-node Width-tool dragging, dash-compatible variable-width strokes, full Illustrator-class brushes/meshes/perspective/3D, and all remaining Adobe-class features are **not** implemented. The existing M7 feature tracker remains the umbrella scope.

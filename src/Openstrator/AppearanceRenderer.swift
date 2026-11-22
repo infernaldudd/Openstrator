@@ -88,6 +88,17 @@ enum AppearanceRenderer {
             return
         }
         guard let path = geometryPath(object: object) else { return }
+        if let outline = StrokeProfileRenderer.outlinePath(for: object, width: stroke.width) {
+            switch stroke.paint {
+            case .color(let value):
+                context.fill(outline, with: .color(rgba(value).swiftUIColor))
+            case .linearGradient(let value):
+                let points = gradientPoints(angle: value.angleDegrees, rect: object.bounds)
+                let gradient = Gradient(stops: value.stops.map { .init(color: rgba($0.color).swiftUIColor, location: $0.location) })
+                context.fill(outline, with: .linearGradient(gradient, startPoint: points.start, endPoint: points.end))
+            }
+            return
+        }
         let style = StrokeStyle(
             lineWidth: max(0.5, stroke.width),
             lineCap: lineCap(stroke.cap),

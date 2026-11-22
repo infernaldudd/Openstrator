@@ -171,7 +171,7 @@ extension EditorStore {
     }
 
     func toggleLayerVisibility(_ id: UUID) {
-        guard var tree = document.layerTree, var node = tree.nodes[id] else { return }
+        guard var tree = document.layerTree, let node = tree.nodes[id] else { return }
         snapshot()
         let value = !node.isVisible
         let ids = [id] + tree.descendants(of: id)

@@ -45,7 +45,7 @@ if grep -q '"$SWIFT" test' BUILD_OPENSTRATOR.command; then
   exit 1
 fi
 grep -q -- '--product Openstrator' BUILD_OPENSTRATOR.command
-grep -Eq 'Openstrator V6 M(5|6)' BUILD_OPENSTRATOR.command
+grep -Eq 'Openstrator V6 M(5|6|7)' BUILD_OPENSTRATOR.command
 
 echo '[M5 7/11] Swift parser checks'
 for f in Openstrator/*.swift Sources/OpenstratorCore/*.swift Sources/OpenstratorCore/*/*.swift Sources/OpenstratorCoreSelfTest/*.swift; do

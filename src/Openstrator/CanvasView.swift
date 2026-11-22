@@ -694,7 +694,11 @@ enum VectorCanvasRenderer {
                     fallback.addLine(to: object.points[1].cgPoint)
                     path = fallback
                 }
-                layer.stroke(path, with: .color(object.stroke.swiftUIColor), style: strokeStyle(for: object))
+                if let outline = StrokeProfileRenderer.outlinePath(for: object, width: object.strokeWidth) {
+                    layer.fill(outline, with: .color(object.stroke.swiftUIColor))
+                } else {
+                    layer.stroke(path, with: .color(object.stroke.swiftUIColor), style: strokeStyle(for: object))
+                }
 
             case .image:
                 MainActor.assumeIsolated {
@@ -742,7 +746,11 @@ enum VectorCanvasRenderer {
                     fill(path, object: object, rect: rect, context: &layer)
                 }
                 if object.strokeWidth > 0 && object.stroke.a > 0 {
-                    layer.stroke(path, with: .color(object.stroke.swiftUIColor), style: strokeStyle(for: object))
+                    if let outline = StrokeProfileRenderer.outlinePath(for: object, width: object.strokeWidth) {
+                        layer.fill(outline, with: .color(object.stroke.swiftUIColor))
+                    } else {
+                        layer.stroke(path, with: .color(object.stroke.swiftUIColor), style: strokeStyle(for: object))
+                    }
                 }
             }
         }
@@ -834,8 +842,8 @@ enum VectorCanvasRenderer {
         for i in 0..<sides {
             let angle = -Double.pi / 2 + Double(i) * 2 * Double.pi / Double(sides)
             let point = CGPoint(
-                x: center.x + cos(angle) * radiusX,
-                y: center.y + sin(angle) * radiusY
+                x: center.x + cos(CGFloat(angle)) * radiusX,
+                y: center.y + sin(CGFloat(angle)) * radiusY
             )
             if i == 0 { path.move(to: point) } else { path.addLine(to: point) }
         }

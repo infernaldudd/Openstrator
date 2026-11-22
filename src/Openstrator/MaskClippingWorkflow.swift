@@ -42,7 +42,8 @@ extension EditorStore {
         let groupIDs = Set(selectedObjects.compactMap(\.clippingGroupID))
         guard !groupIDs.isEmpty else { status = "Select artwork in a clipping group"; return }
         snapshot()
-        for index in document.objects.indices where groupIDs.contains(document.objects[index].clippingGroupID) {
+        for index in document.objects.indices {
+            guard let clippingGroupID = document.objects[index].clippingGroupID, groupIDs.contains(clippingGroupID) else { continue }
             document.objects[index].clippingGroupID = nil
             document.objects[index].clippingRole = nil
             if let legacyGroupID = document.objects[index].groupID, groupIDs.contains(legacyGroupID) { document.objects[index].groupID = nil }

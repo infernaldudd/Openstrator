@@ -1,3 +1,13 @@
+# Openstrator V6 M7.1a — First Illustrator-class vector-stroke update
+
+This release extends the working M6.1 SwiftUI/macOS editor with real **variable-width vector strokes**. Select an **open** Pen, Pencil, or line object, open **Appearance → Width Profile**, then choose Uniform, Taper Both Ends, Taper Start, Taper End, or Middle Heavy. Profiles are saved, undoable, and preserved as SVG expanded vector geometry.
+
+**Build:** Extract the architecture-matched ZIP on macOS 13+ and run `BUILD_OPENSTRATOR.command`. This source ZIP builds the native app on the Mac; no precompiled `.app` is included. Apple Silicon and Intel implementations share the same source. The Linux verification gate cannot guarantee native SwiftUI/AppKit compilation or launch.
+
+**Scope:** M7.1a is one verified implementation slice, not full Adobe Illustrator parity. Future features are tracked in the M7 feature matrix and GitHub issue #1. The M6.1 layer/resource/raster/typography/appearance workflows are retained.
+
+---
+
 # Openstrator V6 — Milestone 6 Terminal build
 
 M6 is the **Layer/Object Workflows** milestone. It preserves the complete M5.1 vector, typography, Appearance and raster stack while adding a real hierarchical Layers workflow, clipping groups, opacity masks, Embedded Objects, linked assets with embedded fallback, shared Symbols, Graphic Styles/resource libraries, and bounded asynchronous layer thumbnails.
