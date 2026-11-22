@@ -15,7 +15,7 @@ Status legend: **foundation** = core code/portable tests exist; **partial** = so
 |---|---|---|---|
 | Selection & navigation | Selection, direct/group select, magic wand, lasso, artboard, rotate view, print tiling, snapping, isolation | Foundation / partial | Geometric hit tests across nested groups, all zoom levels |
 | Draw & edit paths | Pen, Curvature, Pencil, anchors, scissors, knife, smoothing, join, shaper, flares, complex shape tools | Foundation / partial | Editable Bézier topology and deterministic undo/export |
-| Stroke/brush system | Brush definitions (calligraphic, art, scatter, pattern, bristle), stroke profiles, Width tool, live preview, pressure where supported | Partial | Brush library, true variable-width geometry, live edit |
+| Stroke/brush system | Brush definitions (calligraphic, art, scatter, pattern, bristle), stroke profiles, Width tool, live preview, pressure where supported | M7.1a implemented: 5 editable open-path width-profile presets, true outline geometry, Appearance/undo/save/SVG; other brush families and knot editing missing | Brush library, true variable-width geometry, live edit |
 | Construction / fills | Shape Builder, Pathfinder, Live Paint, meshes, freeform/linear/radial gradients, pattern swatches | Partial / missing advanced systems | Real intersect/split/paint geometry; editable serialized swatches |
 | Symbol family | Sprayer, shifter, scruncher, sizer, spinner, stainer, screener, styler, shared definitions | Shared definitions foundation; advanced tools missing | Definition edits update all instances; scatter transforms undoable |
 | Perspective & warp | Perspective grid/selection, envelope distortion, Puppet Warp, liquify-family controls | Missing / incomplete | Editable geometry, inverse hit tests, export |
@@ -54,3 +54,11 @@ Status legend: **foundation** = core code/portable tests exist; **partial** = so
 
 ## Scope note
 Adobe Illustrator has decades of independent tools and rendering/format workflows. All-class functional comparability is a long-running product objective. A single M7 ZIP cannot responsibly implement or verify everything; use the sub-milestone gates above.
+
+## M7.1a delivered 2026-11-22
+
+- [x] Open-line/curve variable stroke profiles with five presets and real fill geometry
+- [x] Appearance Inspector, undo/redo snapshots, JSON persistence, classic/M4 renderer, expanded SVG export
+- [x] 130 core tests, 91 framework-free self-checks; M5/M6 regressions green on Linux
+- [ ] Native macOS Apple Silicon and Intel CI compilation + app launch/interaction verification
+- [ ] Remaining brush families, custom width points and closed-path seam interpolation
