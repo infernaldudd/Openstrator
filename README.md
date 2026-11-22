@@ -31,6 +31,14 @@ The M6 ZIP files below predate the Apple Silicon compiler fixes in M6.1 and may 
 
 Each ZIP includes `BUILD_OPENSTRATOR.command`, source, assets, tests, and original QA notes. Extract the matching archive on macOS (Ventura or later) and run the Terminal builder. The resulting app is ad-hoc signed, not notarized.
 
+## M7.1a — variable-width vector strokes (current development branch)
+
+The first M7 feature slice includes five editable width-profile presets for open vector paths, integrated into the Appearance Inspector, classic and stacked renderers, document persistence and SVG outline export.
+
+**Source and CI:** [M7.1a review PR #2](https://github.com/infernaldudd/Openstrator/pull/2) · [Native Apple Silicon + Intel build workflow](https://github.com/infernaldudd/Openstrator/actions/workflows/macos-build.yml) · [M7.1a QA report](src/QA_REPORT.md).
+
+The ZIP archives currently listed in the M6 section are old archival files, not the M7.1a packages. M7.1a source ZIP downloads are provided in the originating ChatGPT conversation. Native CI can publish built Mac app artifacts if the checks pass. No Illustrator-wide feature parity is claimed.
+
 ## Mac launch evidence and M7 development
 
 - [First M6.1 Apple Silicon smoke-test observations](docs/M6.1_APPLE_SILICON_SMOKE_TEST.md)
